@@ -1,23 +1,482 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
-  </body>
-</html>
+
+  <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "렉서스 SUV의 연간 유지비는 평균 얼마인가요?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "렉서스 SUV의 연간 유지비는 모델(RX, NX, UX)과 운전자의 주행거리, 보험료 할인율에 따라 크게 달라집니다. 일반적으로 렉서스 RX 350h 모델의 경우 연간 약 300~500만 원(보험료, 세금, 유류비 포함) 수준으로 예상됩니다. 정확한 금액은 개인의 운전 조건과 보험 가입 조건에 따라 다릅니다."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "렉서스 SUV의 수리비용은 다른 수입차 브랜드와 비교했을 때 어떤가요?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "렉서스는 일본차 특유의 높은 내구성과 안정성으로 잔고장이 적다는 평가를 받습니다. 초기 5년간의 보증 기간 내에는 유지비 부담이 적습니다. 다만, 보증 기간 이후 부품 교체가 필요할 경우 수리비용은 벤츠나 BMW와 유사한 수준이거나 일부 부품은 더 높을 수 있습니다. 하지만 고장률 자체가 낮아 장기적으로는 유지보수 비용이 저렴한 편입니다."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "렉서스 SUV 유지비 절약을 위한 팁이 있나요?",
+              "@id": "#절약팁-답변",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "가장 큰 유지비 절약 방법은 연비가 좋은 하이브리드 모델(RX 350h, NX 350h)을 선택하는 것입니다. 또한, 보험료 절약을 위해 마일리지 특약을 활용하고, 정기적인 점검을 통해 소모품 교체 주기를 철저히 관리하는 것이 중요합니다. 보증 기간 이후에는 공식 서비스 센터 대신 전문 업체나 신뢰할 수 있는 사설 수리점을 이용하는 것도 비용 절약에 도움이 될 수 있습니다."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "렉서스 SUV 모델 중 가장 유지비가 저렴한 모델은 무엇인가요?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "현재 국내에 판매되는 렉서스 SUV 중에서는 렉서스 UX 250h 모델이 가장 저렴한 유지비를 자랑합니다. 작은 차체와 뛰어난 연비, 상대적으로 저렴한 보험료와 자동차세로 인해 경제적인 선택지로 평가됩니다. 렉서스 NX 350h도 RX 350h보다 유지비가 낮은 편입니다."
+              }
+            }
+          ]
+        }
+        </script>
+
+        <!-- CSS Styling for modern, clean layout -->
+        <style>
+            /* CSS Variables */
+            :root {
+                --primary-color: #0A2B4E; /* Dark Blue */
+                --secondary-color: #3B82F6; /* Medium Blue for accents */
+                --accent-color: #10B981; /* Green Accent */
+                --text-color: #333333;
+                --bg-light: #F7F9FC; /* Light Grayish Blue */
+                --bg-dark: #1E3A8A; /* Darker Blue for Hero */
+                --btn-cta: #FF6B6B; /* Soft Red CTA */
+                --border-color: #E0E0E0;
+                --header-bg: #FFFFFF;
+                --footer-bg: #1A1A1A;
+                --shadow-light: 0 4px 12px rgba(0,0,0,0.08);
+            }
+            
+            /* Font Import */
+            @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+            
+            /* Base Styles */
+            body { font-family: 'Noto Sans KR', sans-serif; margin: 0; padding: 0; background-color: var(--bg-light); color: var(--text-color); line-height: 1.8; font-size: 16px; scroll-behavior: smooth; }
+            .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; box-sizing: border-box; }
+            
+            /* Header */
+            header { background-color: var(--header-bg); padding: 20px; text-align: center; border-bottom: 2px solid var(--border-color); position: sticky; top: 0; z-index: 1000; box-shadow: var(--shadow-light); }
+            header h1 { margin: 0; font-size: 1.8em; color: var(--primary-color); font-weight: 900; line-height: 1.4; }
+            header h1 a { text-decoration: none; color: inherit; }
+
+            /* Hero Section */
+            .hero { background-color: var(--bg-dark); color: #fff; text-align: center; padding: 100px 20px; position: relative; overflow: hidden; }
+            .hero h1 { font-size: 3.2em; margin-bottom: 15px; font-weight: 900; line-height: 1.3; }
+            .hero p { font-size: 1.3em; margin-bottom: 40px; font-weight: 300; }
+            .hero .highlight { color: var(--btn-cta); font-weight: 700; }
+            .hero-image { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.2; }
+
+            /* CTA Button */
+            .cta-btn { background-color: var(--btn-cta); color: #fff; padding: 18px 40px; font-size: 1.3em; font-weight: bold; border: none; border-radius: 50px; cursor: pointer; transition: background-color 0.3s, transform 0.2s; box-shadow: 0 4px 10px rgba(0,0,0,0.2); text-decoration: none; display: inline-block; }
+            .cta-btn:hover { background-color: #E55B5B; transform: translateY(-3px); }
+
+            /* Main Content Structure */
+            main { background-color: #fff; padding-bottom: 40px; }
+            .content-section { padding: 60px 0; border-bottom: 1px solid var(--border-color); background-color: #fff; }
+            .content-section:last-child { border-bottom: none; }
+            .content-section h2 { font-size: 2.5em; color: var(--secondary-color); text-align: left; margin-bottom: 30px; font-weight: 700; line-height: 1.4; }
+            .content-section h3 { font-size: 1.8em; color: var(--primary-color); margin-top: 40px; margin-bottom: 15px; padding-left: 15px; border-left: 4px solid var(--btn-cta); font-weight: 700; }
+            .content-section p { margin-bottom: 20px; font-weight: 400; color: #444; }
+            .content-section strong { font-weight: 700; color: var(--primary-color); }
+            .content-section ul { list-style: none; padding-left: 0; margin-bottom: 20px; }
+            .content-section li { padding: 10px 0; border-bottom: 1px solid #eee; }
+            .content-section li strong { color: var(--secondary-color); font-weight: 700; }
+
+            /* Data Visualization (Tables and Graphs) */
+            .data-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+            .data-table th, .data-table td { border: 1px solid var(--border-color); padding: 15px; text-align: center; font-size: 0.95em; }
+            .data-table th { background-color: var(--primary-color); color: #fff; font-weight: 700; }
+            .data-table tr:nth-child(even) { background-color: var(--bg-light); }
+            .data-table td strong { color: var(--btn-cta); }
+
+            /* Interactive Elements (Forms and Calculators) */
+            .comparison-form-box { background-color: var(--bg-light); padding: 40px; border-radius: 10px; box-shadow: var(--shadow-light); margin-top: 30px; border: 1px solid var(--border-color); }
+            .comparison-form-box h2 { color: var(--primary-color); text-align: center; margin-bottom: 25px; font-size: 2em; }
+            .comparison-form-box label { display: block; margin-bottom: 8px; font-weight: 500; color: var(--text-color); }
+            .comparison-form-box input[type="text"], 
+            .comparison-form-box input[type="number"], 
+            .comparison-form-box input[type="tel"],
+            .comparison-form-box input[type="date"],
+            .comparison-form-box select { width: 100%; padding: 14px; margin-bottom: 20px; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box; font-size: 1em; }
+            .comparison-form-box .form-group { margin-bottom: 25px; }
+
+            /* Info Box */
+            .info-box { background-color: #f0f4f8; border-left: 5px solid var(--secondary-color); padding: 20px; border-radius: 5px; margin-top: 30px; font-size: 0.95em; }
+            .info-box h4 { margin-top: 0; color: var(--primary-color); font-weight: 700; }
+
+            /* FAQ Section */
+            .faq-item { background-color: #fff; border: 1px solid var(--border-color); border-radius: 8px; margin-bottom: 15px; overflow: hidden; }
+            .faq-item h3 { cursor: pointer; display: flex; justify-content: space-between; align-items: center; padding: 20px; background-color: var(--bg-light); margin: 0; font-weight: 700; color: var(--primary-color); }
+            .faq-item h3::after { content: '+'; font-size: 1.5em; color: var(--secondary-color); transition: transform 0.3s; }
+            .faq-item.active h3::after { content: '-'; transform: rotate(180deg); }
+            .faq-item p { display: none; padding: 20px; color: #555; background-color: #fff; }
+            .faq-item.active p { display: block; }
+
+            /* Related Keywords and Navigation */
+            .keyword-list { list-style: none; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; margin-top: 30px; }
+            .keyword-list li { background-color: var(--bg-light); color: var(--primary-color); padding: 10px 20px; margin: 5px; border-radius: 20px; font-weight: 500; border: 1px solid var(--border-color); transition: background-color 0.3s; }
+            .keyword-list li:hover { background-color: #EAEAEA; }
+            .link-source { font-size: 0.9em; color: var(--secondary-color); text-decoration: none; display: block; margin-top: 5px; }
+
+            /* Footer */
+            footer { background-color: var(--footer-bg); color: #ccc; text-align: center; padding: 40px 20px; font-size: 0.9em; line-height: 1.6; }
+            footer a { color: #ccc; text-decoration: none; margin: 0 10px; transition: color 0.3s; }
+            footer a:hover { color: #fff; text-decoration: underline; }
+
+            /* Responsive Design */
+            @media (max-width: 768px) {
+                .hero h1 { font-size: 2.5em; }
+                .hero p { font-size: 1.2em; }
+                .cta-btn { padding: 15px 30px; font-size: 1.1em; }
+                .content-section h2 { font-size: 2em; }
+                .content-section h3 { font-size: 1.5em; }
+                .comparison-form-box { padding: 25px; }
+                .data-table th, .data-table td { font-size: 0.85em; padding: 10px; }
+            }
+        </style>
+    </head>
+    <body>
+
+        <header>
+            <div class="container">
+                <h1><a href="/">렉서스 SUV 유지비 완벽 분석: RX, NX 모델별 연비, 수리비 총정리</a></h1>
+            </div>
+        </header>
+
+        <main>
+            <!-- 히어로 섹션: 핵심 키워드 강조 및 CTA -->
+            <section class="hero">
+                <img src="https://images.pexels.com/photos/1769152/pexels-photo-1769152.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Lexus SUV on a scenic road" class="hero-image">
+                <div class="container" style="position: relative; z-index: 1;">
+                    <h1><span class="highlight">렉서스 SUV 유지비</span>, 합리적인 선택을 위한 2026년 가이드</h1>
+                    <p>프리미엄 수입 SUV 렉서스 RX와 NX의 연비, 세금, 수리비를 상세 분석합니다. 숨겨진 유지보수 비용까지 꼼꼼하게 파악하고 현명한 구매 결정을 내리세요.</p>
+                    <a href="#quote-form-section" class="cta-btn">내 예상 유지비 견적 바로 알아보기</a>
+                </div>
+            </section>
+
+            <!-- 핵심 요약 및 비교 견적 폼 섹션 -->
+            <section id="quote-form-section" class="content-section" style="background-color: var(--bg-light); padding: 40px 0;">
+                <div class="container">
+                    <div class="comparison-form-box">
+                        <h2>렉서스 SUV 연간 예상 유지비 계산기</h2>
+                        <p>간단한 정보 입력으로 렉서스 RX, NX, UX 모델의 연간 유류비, 자동차세, 보험료 및 예상 소모품 교체 비용을 실시간으로 계산해드립니다. <strong>자세한 견적 비교</strong>를 통해 유지비 부담을 최소화하세요.</p>
+                        <form action="#" method="post">
+                            <div class="form-group">
+                                <label for="car-model">관심 모델 선택 (RX, NX, UX 등)</label>
+                                <select id="car-model" required>
+                                    <option value="">모델을 선택하세요</option>
+                                    <option value="RX">렉서스 RX 350h (하이브리드)</option>
+                                    <option value="NX">렉서스 NX 350h (하이브리드)</option>
+                                    <option value="UX">렉서스 UX 250h (하이브리드)</option>
+                                    <option value="RX-gas">렉서스 RX 500h (터보 하이브리드)</option>
+                                    <option value="NX-phev">렉서스 NX 450h+ (PHEV)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="annual-distance">연간 주행거리 (km)</label>
+                                <input type="number" id="annual-distance" placeholder="예: 15000" required min="0">
+                            </div>
+                            <div class="form-group">
+                                <label for="fuel-price">현재 휘발유 가격 (L당 원)</label>
+                                <input type="number" id="fuel-price" placeholder="예: 1700" required min="1000">
+                            </div>
+                            <div class="form-group">
+                                <label for="insurance-age">운전자 연령</label>
+                                <input type="number" id="insurance-age" placeholder="예: 35" required min="18" max="99">
+                            </div>
+                            <button type="submit" class="cta-btn">예상 유지비 견적 계산하기</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SEO 상세 컨텐츠 1: 유지비의 기본 원리와 렉서스의 특성 -->
+            <section class="content-section">
+                <div class="container">
+                    <h2 id="maintenance-overview">렉서스 SUV 유지비 구성 요소 분석: 숨겨진 비용은 무엇일까?</h2>
+                    <p>프리미엄 수입차 렉서스는 높은 정숙성과 뛰어난 내구성으로 유명합니다. 하지만 차량 구매 전 반드시 확인해야 할 부분이 바로 <strong>렉서스 SUV 유지비</strong>입니다. 유지비는 단순히 기름값이나 자동차세뿐만 아니라 예상치 못한 수리비용과 보험료 등 다양한 항목으로 구성됩니다. 특히 렉서스 RX, NX와 같은 하이브리드 모델은 일반 가솔린 차량과 유지비 구조가 다를 수 있습니다.</p>
+                    <p>2026년 기준으로 렉서스 SUV의 연간 유지비를 결정하는 핵심 요소는 크게 네 가지입니다. 이 요소들을 종합적으로 파악해야만 정확한 유지비용을 산출할 수 있습니다.</p>
+                    <ul>
+                        <li><strong>1. 유류비 (연비):</strong> 하이브리드 모델의 뛰어난 연비가 가장 큰 장점입니다. 렉서스 RX 350h나 NX 350h의 경우 복합연비가 13~14km/l 수준으로 동급 수입 SUV 중 최상위권에 속합니다.</li>
+                        <li><strong>2. 자동차세:</strong> 배기량에 따라 책정되므로, 2.5L 엔진을 사용하는 RX나 NX 모델의 경우 국산 동급 차량과 비슷한 수준의 세금을 납부합니다.</li>
+                        <li><strong>3. 보험료:</strong> 차량 가액(차량 가격)과 운전자 연령, 사고 이력에 따라 결정됩니다. 수입차이기 때문에 국산차 대비 차량 가액이 높아 초기 보험료가 높게 책정될 수 있습니다.</li>
+                        <li><strong>4. 수리비 및 소모품 교체 비용:</strong> 렉서스의 가장 큰 장점은 내구성으로 인한 낮은 잔고장률입니다. 그러나 수입차 특성상 부품 가격이 높기 때문에 보증 기간 이후의 수리비용을 반드시 고려해야 합니다.</li>
+                    </ul>
+
+                    <h3 id="rx-nx-comparison">렉서스 RX vs. 렉서스 NX 유지비 비교</h3>
+                    <p>가장 많이 판매되는 렉서스 SUV 모델인 RX와 NX는 크기와 엔진 구성이 유사하지만 유지비 측면에서 약간의 차이가 있습니다. <strong>렉서스 RX 유지비</strong>는 더 큰 차체와 풍부한 편의 장비로 인해 <strong>렉서스 NX 유지비</strong>보다 다소 높게 책정됩니다. 특히 타이어 크기, 브레이크 패드 등 소모품 비용에서 차이가 발생할 수 있습니다. 렉서스 UX 모델은 크기가 작아 연비가 뛰어나고, 자동차세 및 보험료가 상대적으로 저렴해 유지비가 가장 낮습니다. <strong>렉서스 NX 유지비</strong>는 RX에 비해 초기 차량 가격이 저렴한 만큼 보험료 부담이 덜합니다.</p>
+
+                    <h3 id="lexus-reliability">렉서스 내구성과 잔고장: 유지비에 미치는 영향</h3>
+                    <p>렉서스는 JD Power 등 글로벌 소비자 만족도 조사에서 압도적인 내구성을 인정받습니다. 이 높은 신뢰도는 장기적인 유지비 절감으로 이어집니다. 잦은 고장으로 인한 잦은 서비스센터 방문이 없다는 것은 <strong>시간과 비용 모두를 절약</strong>하는 결정적인 장점입니다. <strong>내돈내산 후기</strong>를 보면, 렉서스를 소유한 오너들은 '잔고장이 거의 없다'는 점을 렉서스 SUV의 가장 큰 매력으로 꼽습니다.</p>
+                </div>
+            </section>
+
+            <!-- SEO 상세 컨텐츠 2: 소모품 및 수리비 상세 분석 -->
+            <section class="content-section" style="background-color: var(--bg-light);">
+                <div class="container">
+                    <h2 id="repair-cost-analysis">수입차 유지비의 핵심: 렉서스 소모품 교체 주기와 수리비용</h2>
+                    <p>수입차를 구매할 때 가장 걱정되는 부분이 수리비용입니다. 렉서스는 부품 값이 다른 유럽 프리미엄 브랜드(벤츠, BMW, 아우디)와 비슷한 수준이지만, 고장률이 낮아 총 유지보수 비용은 저렴할 수 있습니다. 렉서스 SUV의 주요 소모품 교체 주기를 파악하면 유지비를 예측할 수 있습니다.</p>
+
+                    <h3 id="consumables">주요 소모품 교체 주기 및 예상 비용 (2026년 기준)</h3>
+                    <p>렉서스 SUV의 일반적인 소모품 교체 주기는 다음과 같습니다. 공식 서비스센터 기준이며, 전문 업체에서는 더 저렴한 금액으로 교체가 가능합니다.</p>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>소모품</th>
+                                <th>교체 주기 (권장)</th>
+                                <th>예상 비용 (공식 센터 기준)</th>
+                                <th>비고</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>엔진 오일 및 필터</td>
+                                <td>10,000 km 또는 1년</td>
+                                <td>15만 원 ~ 25만 원</td>
+                                <td>하이브리드 모델은 엔진 가동 시간이 짧아 수명이 길어질 수 있음</td>
+                            </tr>
+                            <tr>
+                                <td>에어컨/에어 필터</td>
+                                <td>10,000 km 또는 1년</td>
+                                <td>5만 원 ~ 10만 원</td>
+                                <td>운전 환경에 따라 달라질 수 있음</td>
+                            </tr>
+                            <tr>
+                                <td>브레이크 패드</td>
+                                <td>30,000 ~ 60,000 km</td>
+                                <td>20만 원 ~ 40만 원 (앞/뒤)</td>
+                                <td>하이브리드 회생 제동으로 인해 수명이 긴 편</td>
+                            </tr>
+                            <tr>
+                                <td>하이브리드 배터리 (핵심 부품)</td>
+                                <td>10년 이상 또는 200,000 km</td>
+                                <td><strong>보증 기간 확인 (10년/20만km)</strong></td>
+                                <td>고장률이 낮으나, 교체 시 200~400만 원 예상</td>
+                            </tr>
+                            <tr>
+                                <td>타이어 (18인치 기준)</td>
+                                <td>40,000 ~ 60,000 km</td>
+                                <td>개당 20만 원 ~ 40만 원</td>
+                                <td>모델별 타이어 크기에 따라 가격 차이 발생</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p><strong>렉서스 NX 유지비</strong>를 걱정하는 운전자라면, 특히 하이브리드 배터리 보증 기간을 꼼꼼히 확인해야 합니다. 렉서스 하이브리드 모델은 배터리 보증이 길어 장기간 유지비 부담이 적습니다. 반면, <strong>렉서스 RX 500h</strong>와 같은 고성능 터보 모델은 일반 하이브리드 모델보다 소모품 주기가 짧고 비용이 더 발생할 수 있습니다.</p>
+
+                    <h3 id="accident-repair">사고 수리비와 보험료 할증: 렉서스 사고 시 대처법</h3>
+                    <p>렉서스는 고급차로 분류되어 사고 발생 시 부품 교체 비용이 국산차보다 비쌉니다. 경미한 접촉사고라도 수리비가 높게 나올 경우 보험료 할증이 발생할 수 있습니다. 렉서스 운전자들은 사고 발생 시 수리비 <strong>견적</strong>을 정확히 확인하여 보험 처리 여부를 신중하게 결정해야 합니다. 특히 <strong>물적할증기준금액</strong>을 초과할 경우 보험료가 크게 오를 수 있으므로, 경미한 사고는 자비로 수리하는 것이 장기적인 관점에서 유리할 수 있습니다.</p>
+                </div>
+            </section>
+
+            <!-- SEO 상세 컨텐츠 3: 세금, 보험료, 연비 상세 분석 -->
+            <section class="content-section">
+                <div class="container">
+                    <h2 id="fuel-tax-insurance">유류비, 자동차세, 보험료: 렉서스 SUV의 숨겨진 경제성</h2>
+                    <p>렉서스 SUV를 선택하는 가장 큰 이유는 하이브리드 시스템이 제공하는 뛰어난 연비입니다. 렉서스는 하이브리드 기술의 선두 주자로, 연간 유류비에서 큰 절약을 기대할 수 있습니다. 2026년 기준으로 렉서스 RX 350h와 NX 350h의 연비를 바탕으로 예상 유류비를 계산하고, 자동차세와 보험료를 분석해 보겠습니다.</p>
+
+                    <h3 id="fuel-efficiency">1. 렉서스 하이브리드 연비 분석 및 유류비 절감 효과</h3>
+                    <p>렉서스 RX 350h (2.5L 하이브리드)의 복합연비는 13~14km/l 수준으로, 동급 가솔린 SUV (약 8~10km/l) 대비 30% 이상 높은 효율을 보여줍니다. 연간 15,000km 주행 기준으로 유류비 <strong>절약 금액</strong>을 계산하면 다음과 같습니다. (휘발유 가격 1,700원/L 기준)</p>
+                    <ul>
+                        <li><strong>렉서스 RX 350h (연비 13km/l):</strong> 15,000km / 13km/l = 1,154L 필요. 총 유류비 약 196만 원.</li>
+                        <li><strong>동급 가솔린 SUV (연비 9km/l):</strong> 15,000km / 9km/l = 1,667L 필요. 총 유류비 약 283만 원.</li>
+                        <li><strong>연간 절약 금액:</strong> 약 87만 원.</li>
+                    </ul>
+                    <p>이러한 연비 효율은 <strong>렉서스 SUV 유지비</strong>를 <strong>저렴한곳</strong>으로 만들어주는 결정적인 요인입니다. 특히 시내 주행이 많은 운전자에게 하이브리드 시스템은 유류비 절감 효과를 극대화합니다.</p>
+
+                    <h3 id="tax-premium">2. 자동차세와 보험료: 수입차의 기본 비용</h3>
+                    <p><strong>자동차세:</strong> 렉서스 RX 350h와 NX 350h는 모두 2.5L 엔진을 사용하므로, 연간 자동차세는 약 65만 원 수준입니다. 이는 국산 SUV 싼타페 하이브리드(1.6L)의 자동차세(약 29만 원)보다는 높지만, 3.0L급 가솔린 모델(약 78만 원)보다는 저렴합니다.</p>
+                    <p><strong>보험료:</strong> 수입차는 국산차 대비 차량 가액이 높고, 수리비가 비싸 보험료가 높게 책정되는 경향이 있습니다. 렉서스 RX 350h 신차를 기준으로 30대 운전자의 연간 보험료는 100만 원~150만 원 수준으로 예상할 수 있습니다. <strong>렉서스 SUV 보험료 견적</strong>을 비교할 때는 다이렉트 보험을 통해 여러 보험사의 할인가를 확인하는 것이 필수입니다. <strong>신규 가입 혜택</strong>이나 마일리지 특약을 활용하면 추가 할인을 받을 수 있습니다.</p>
+                </div>
+            </section>
+
+            <!-- SEO 상세 컨텐츠 4: 렉서스 SUV 모델별 상세 비교 및 장단점 분석 -->
+            <section class="content-section" style="background-color: var(--bg-light);">
+                <div class="container">
+                    <h2 id="model-comparison">모델별 유지비 비교: RX, NX, UX의 장단점 분석</h2>
+                    <p>렉서스 SUV 라인업은 RX, NX, UX로 구성되어 있습니다. 각 모델별로 차량 가격과 유지비의 차이가 있으므로, 운전자의 라이프스타일에 맞춰 선택하는 것이 중요합니다. 특히 <strong>렉서스 RX 유지비</strong>는 플래그십 모델인 만큼 NX나 UX보다 높을 수 있습니다.</p>
+
+                    <h3 id="rx-nx-comparison-table">렉서스 SUV 모델별 유지비 비교표 (2026년 기준)</h3>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>구분</th>
+                                <th>렉서스 UX 250h</th>
+                                <th>렉서스 NX 350h</th>
+                                <th>렉서스 RX 350h</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>차량 크기</td>
+                                <td>준중형 (Compact)</td>
+                                <td>중형 (Mid-size)</td>
+                                <td>준대형 (Large Mid-size)</td>
+                            </tr>
+                            <tr>
+                                <td>엔진 배기량</td>
+                                <td>2.0L 하이브리드</td>
+                                <td>2.5L 하이브리드</td>
+                                <td>2.5L 하이브리드</td>
+                            </tr>
+                            <tr>
+                                <td>복합 연비 (km/l)</td>
+                                <td>15.9</td>
+                                <td>13.7</td>
+                                <td>13.6</td>
+                            </tr>
+                            <tr>
+                                <td>예상 연간 유류비 (1.5만 km)</td>
+                                <td>약 160만 원</td>
+                                <td>약 190만 원</td>
+                                <td>약 190만 원</td>
+                            </tr>
+                            <tr>
+                                <td>자동차세 (연간)</td>
+                                <td>약 40만 원</td>
+                                <td>약 65만 원</td>
+                                <td>약 65만 원</td>
+                            </tr>
+                            <tr>
+                                <td>추천 운전자</td>
+                                <td>도심 위주 주행, 1~2인 가구</td>
+                                <td>패밀리 SUV, 경제성 중시</td>
+                                <td>장거리 주행, 고급스러움 중시</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p><strong>렉서스 UX 유지비</strong>가 가장 저렴한 이유는 배기량이 낮고 연비가 뛰어나기 때문입니다. 하지만 <strong>렉서스 RX 유지비</strong>가 높은 만큼 더 넓은 실내 공간과 승차감을 제공합니다. <strong>렉서스 NX 유지비</strong>는 RX와 UX 사이의 균형을 잡아줍니다. 따라서 개인의 주행 환경과 필요한 공간을 고려하여 합리적인 선택을 해야 합니다.</p>
+
+                    <h3 id="market-review">시장 동향: 중고차 가격 방어와 렉서스</h3>
+                    <p>렉서스는 신차 구매 후 시간이 지나도 중고차 가격 방어율이 매우 높은 브랜드 중 하나입니다. 이는 렉서스의 높은 내구성과 시장의 신뢰 덕분입니다. 따라서 장기적으로 보면 감가상각으로 인한 손실이 적어, <strong>렉서스 SUV 유지비</strong>가 겉으로 보이는 것보다 훨씬 저렴할 수 있습니다. <strong>렉서스 중고차 시세</strong>를 확인해보면, 동급 유럽차 대비 높은 잔존 가치를 확인할 수 있습니다.</p>
+                </div>
+            </section>
+
+            <!-- SEO 상세 컨텐츠 5: 유지비 절약 팁과 비교 견적 활용법 -->
+            <section class="content-section">
+                <div class="container">
+                    <h2 id="cost-reduction-tips">렉서스 SUV 유지비 절약을 위한 팁: 마일리지 특약, 전문 업체 활용</h2>
+                    <p>렉서스 SUV를 소유하는 동안 발생하는 총 비용을 줄이려면 현명한 운전 습관과 정보 활용이 필수입니다. 특히 <strong>렉서스 RX 유지비</strong>처럼 상대적으로 높은 차량 가격으로 인해 발생하는 보험료를 절약하는 것이 중요합니다. 다음은 렉서스 SUV 유지비를 절약할 수 있는 실질적인 팁입니다.</p>
+
+                    <h3 id="insurance-saving">1. 다이렉트 보험 비교 및 할인 특약 활용</h3>
+                    <p>수입차 보험료는 보험사별로 할인율과 <strong>견적</strong>이 크게 다릅니다. 다이렉트 자동차보험 비교 사이트를 이용하면 평균 15% 이상 저렴하게 가입할 수 있습니다. <strong>보험료 싼곳</strong>을 찾는 가장 좋은 방법입니다. 또한 렉서스 하이브리드 모델은 주행거리가 짧은 경우가 많으므로 <strong>마일리지 특약</strong>(주행거리 할인)을 적극적으로 활용해야 합니다. 블랙박스 할인, 안전운전 습관 할인(TMAP 등)도 꼼꼼하게 챙기면 <strong>렉서스 보험료</strong> 부담을 줄일 수 있습니다.</p>
+
+                    <h3 id="maintenance-strategy">2. 보증 기간 이후 정비: 공식 센터 vs. 전문 업체</h3>
+                    <p>렉서스는 초기 보증 기간(통상 4년/10만 km) 동안 공식 서비스 센터를 이용하는 것이 권장됩니다. 하지만 보증 기간이 끝난 후에는 <strong>전문 업체</strong>(수입차 전문 수리점)를 활용하는 것이 유지비 절감에 도움이 됩니다. 공식 센터 대비 공임비가 저렴하고, 정품이 아닌 품질 좋은 애프터마켓 부품을 사용하여 수리비 <strong>가격</strong>을 낮출 수 있습니다. <strong>렉서스 RX 수리비</strong>를 걱정하는 장기 오너라면 반드시 고려해야 할 방법입니다.</p>
+
+                    <h3 id="market-insight">3. 하이브리드 모델의 효율성 극대화</h3>
+                    <p>렉서스 하이브리드 모델은 시내 저속 주행 시 전기 모터의 사용 비율이 높습니다. 하이브리드 시스템을 최대한 활용하여 연비를 높이려면 급가속이나 급제동을 피하고 부드러운 운전 습관을 유지하는 것이 중요합니다. 또한 정기적인 타이어 공기압 점검은 연비뿐만 아니라 타이어 수명에도 영향을 미치므로 <strong>유지보수 비용</strong>을 줄이는 기본 중의 기본입니다.</p>
+
+                    <!-- 정보성 이미지 삽입 (HTML로 텍스트화) -->
+                    <div class="info-box">
+                        <h4>렉서스 SUV 오너들이 말하는 장점과 단점 (내돈내산 후기 분석)</h4>
+                        <p><strong>장점:</strong> 1. 압도적인 내구성과 낮은 잔고장률. 2. 뛰어난 연비와 정숙성. 3. 높은 중고차 가격 방어율. 4. 편리한 AS (보증기간 내).</p>
+                        <p><strong>단점:</strong> 1. 경쟁 모델 대비 높은 차량 가격. 2. 보증 기간 이후 부품 수리비용 부담. 3. 인포테인먼트 시스템의 편의성 (일부 구형 모델).</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SEO 상세 컨텐츠 6: 연관 검색어 키워드 활용 (네이버 스니펫 최적화) -->
+            <section class="content-section" style="background-color: var(--bg-light);">
+                <div class="container">
+                    <h2 id="related-keywords">함께 많이 찾는 키워드: 다이렉트 자동차보험 비교</h2>
+                    <p><strong>렉서스 SUV 유지비</strong>에 대한 검색은 결국 보험료를 절약하는 방법으로 이어집니다. <strong>네이버</strong>, <strong>구글</strong>, <strong>유튜브</strong>에서 렉서스 오너들이 많이 찾는 키워드는 <strong>"렉서스 RX 유지비 디시"</strong>, <strong>"렉서스 NX 유지비 내돈내산 후기"</strong>, <strong>"렉서스 보험료 비교 추천"</strong>, <strong>"렉서스 할인 혜택"</strong> 등입니다. 이러한 검색 트렌드는 운전자들이 유지비 절약을 위해 꼼꼼히 정보를 비교하고 있음을 보여줍니다.</p>
+                    <p>저희 서비스를 통해 렉서스 유지비 예측과 함께 <strong>다이렉트 자동차보험</strong> 견적을 비교해 보세요. <strong>젬나이</strong>(Gemini)나 <strong>ChatGPT</strong>와 같은 AI 기술을 활용하여 <strong>렉서스 유지비 분석</strong>을 제공하고 있습니다.</p>
+
+                    <h3 id="form-recheck">렉서스 유지비 맞춤 견적 확인</h3>
+                    <div class="comparison-form-box">
+                        <p>정확한 차량 정보를 입력하여 렉서스 RX, NX, UX 모델의 맞춤형 예상 유지비 <strong>견적</strong>을 받아보세요.</p>
+                        <form action="#" method="post">
+                            <div class="form-group">
+                                <label for="car-info">차량 정보 입력 (모델명, 연식, 배기량)</label>
+                                <input type="text" id="car-info" placeholder="예: 렉서스 NX 350h 2024년식" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="premium-start-date">보험 만기일 (갱신 예정일)</label>
+                                <input type="date" id="premium-start-date" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="driving-style">주행 스타일 (시내/고속도로 비율)</label>
+                                <select id="driving-style">
+                                    <option value="city">시내 위주 (70% 이상)</option>
+                                    <option value="highway">고속도로 위주 (70% 이상)</option>
+                                    <option value="mix">복합 주행</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="personal-info">이름 / 연락처</label>
+                                <input type="text" id="personal-name" placeholder="이름" required>
+                                <input type="tel" id="personal-phone" placeholder="전화번호" required>
+                            </div>
+                            <button type="submit" class="cta-btn">맞춤형 유지비 견적 받기</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ 섹션 -->
+            <section class="content-section">
+                <div class="container">
+                    <h2>자주 묻는 질문 (FAQ)</h2>
+                    <div class="faq-item">
+                        <h3 id="q1">렉서스 하이브리드 배터리 교체 비용이 걱정됩니다.</h3>
+                        <p>렉서스는 하이브리드 배터리에 대해 10년/20만km의 긴 보증 기간을 제공합니다. 이는 일반적인 운행 환경에서 배터리 수명 기간 내에 교체할 일이 거의 없음을 의미합니다. 보증 기간 이후 교체 비용은 약 200~400만 원 선으로 예상되지만, 실제 고장률이 낮아 큰 걱정은 하지 않아도 됩니다.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3 id="q2">렉서스 SUV의 장점과 단점은 무엇인가요?</h3>
+                        <p><strong>장점:</strong> 뛰어난 내구성, 정숙한 승차감, 높은 하이브리드 효율성, 고급스러운 실내 마감. <strong>단점:</strong> 동급 경쟁 모델 대비 상대적으로 높은 신차 가격, 보증 기간 이후 수리비 부담 (부품 가격), 일부 운전자가 지적하는 투박한 인포테인먼트 시스템.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3 id="q3">렉서스 RX와 NX 중 어떤 모델의 유지비가 더 저렴한가요?</h3>
+                        <p>렉서스 NX가 RX보다 유지비가 더 저렴합니다. NX는 RX보다 차량 가격이 낮아 보험료가 저렴하고, 차체가 작아 소모품 비용이 약간 낮습니다. 두 모델 모두 2.5L 하이브리드 엔진을 공유하지만, 전반적인 총 유지비는 NX가 조금 더 합리적입니다.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3 id="q4">렉서스 SUV 중고차 가격 방어율은 어떤가요?</h3>
+                        <p>렉서스는 중고차 시장에서 인기가 매우 높습니다. 특히 하이브리드 모델은 연비 효율과 내구성 덕분에 높은 감가상각 방어율을 보여줍니다. <strong>렉서스 중고차 시세</strong>는 동급 유럽차 대비 높은 수준으로 형성되어 있어, 추후 판매 시 손실액이 적다는 장점이 있습니다.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 신뢰성 있는 외부 사이트 참조 -->
+            <section class="content-section">
+                <div class="container">
+                    <h2 id="external-links">신뢰성 있는 외부 사이트 참조</h2>
+                    <p>렉서스 SUV 유지비 및 관련 정보를 얻을 수 있는 신뢰할 수 있는 외부 사이트입니다.</p>
+                    <ul>
+                        <li><strong>금융감독원(FSS):</strong> 보험료 산출 기준 및 보험 상품 공시 안내. <a href="https://www.fss.or.kr/" target="_blank" class="link-source">금융감독원 공식 웹사이트</a></li>
+                        <li><strong>보험개발원(KIDI):</strong> 자동차보험료 산정 기준 및 통계 정보. <a href="https://www.kidi.or.kr/" target="_blank" class="link-source">보험개발원 공식 웹사이트</a></li>
+                        <li><strong>나무위키(Namuwiki):</strong> 렉서스 모델별 상세 정보 및 운전자 후기 분석. <a href="https://namu.wiki/w/렉서스" target="_blank" class="link-source">나무위키 렉서스 항목</a></li>
+                        <li><strong>국토교통부(MOLIT):</strong> 자동차 등록 대수 및 연간 자동차세 계산 기준. <a href="https://www.molit.go.kr/" target="_blank" class="link-source">국토교통부 공식 웹사이트</a></li>
+                        <li><strong>네이버 자동차(Naver Auto):</strong> 렉서스 SUV 모델별 신차 가격, 연비, 오너 평가. <a href="https://auto.naver.com/index.nhn" target="_blank" class="link-source">네이버 자동차 공식 웹사이트</a></li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+
+      <!-- JavaScript for enhanced user experience (FAQ toggle) -->
+        <script>
+            document.querySelectorAll('.faq-item h3').forEach(item => {
+                item.addEventListener('click', event => {
+                    const parent = item.parentElement;
+                    const content = parent.querySelector('p');
+                    if (parent.classList.contains('active')) {
+                        parent.classList.remove('active');
+                        content.style.display = 'none';
+                    } else {
+                        parent.classList.add('active');
+                        content.style.display = 'block';
+                    }
+                });
+            });
+        </script>
+      
